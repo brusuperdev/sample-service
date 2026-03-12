@@ -1,0 +1,23 @@
+replicaCount: 1
+
+image:
+  repository: 605893374669.dkr.ecr.us-east-1.amazonaws.com/bruviti-ai-superdev-central
+  tag: "latest"
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 250m
+    memory: 256Mi
+
+healthCheck:
+  path: /health
+  port: 8080
